@@ -1,10 +1,9 @@
 import React, { FC, useCallback, useEffect, useState } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
-import { Box } from "../components/ui/Box";
-import { Typography } from "../components/ui/Typography";
-import { News } from "../types/api";
+import { Box } from "../../components/ui/Box";
+import { News } from "../../types/api";
+import { HomePageView } from "../HomePageView/HomePageView";
 
-const NewsPage: FC = () => {
+const HomePage: FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedNews, setLoadedNews] = useState<News[]>([]);
   const [httpError, setHttpError] = useState("");
@@ -35,24 +34,11 @@ const NewsPage: FC = () => {
     fetchNews();
   }, [fetchNews]);
 
-  const navigate = useNavigate();
-
-  const handleClick = (id: number) => {
-    return (event: React.MouseEvent) => {
-      navigate(`/news/${id}`);
-      event.preventDefault();
-    };
-  };
   return (
     <Box>
-      <Typography variant="tiny">News Page</Typography>
-      {loadedNews.map((item) => (
-        <Box key={item.id} onClick={handleClick(item.id)}>
-          <Typography>{item.id}</Typography>
-        </Box>
-      ))}
+      <HomePageView data={loadedNews}/>
     </Box>
   );
 };
 
-export default NewsPage;
+export default HomePage;
