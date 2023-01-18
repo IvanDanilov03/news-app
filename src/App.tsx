@@ -16,7 +16,6 @@ const App: React.FC = () => {
           <Route path={`/news`} element={<NewsPage />} />
           <Route path={`/news/:newsId`} element={<NewsDetailsPage />} />
         </Routes>
-        ;
       </ThemeProvider>
     </Box>
   );
