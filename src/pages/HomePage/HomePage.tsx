@@ -36,7 +36,7 @@ const HomePage: FC = () => {
 
   return (
     <Box>
-      <HomePageView data={loadedNews}/>
+      <HomePageView data={loadedNews.slice(0, -1)}/>
     </Box>
   );
 };

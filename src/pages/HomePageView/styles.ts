@@ -5,6 +5,6 @@ export const styles: SxStyles = {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
-    mb: 10,
+    my: 10,
   },
 };
