@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import React, { FC, useCallback, useEffect, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { Box } from "../components/ui/Box";
@@ -49,9 +48,22 @@ const NewsPage: FC = () => {
     fetchNews();
   }, [fetchNews]);
 
+  const navigate = useNavigate();
+
+  const handleClick = (id: number) => {
+    return (event: React.MouseEvent) => {
+      navigate(`/news/${id}`);
+      event.preventDefault();
+    };
+  };
   return (
     <Box>
-      <Typography variant="tiny">NewsPage</Typography>
+      <Typography variant="tiny">News Page</Typography>
+      {loadedNews.map((item) => (
+        <Box key={item.id} onClick={handleClick(item.id)}>
+          <Typography>{item.id}</Typography>
+        </Box>
+      ))}
     </Box>
   );
 };
