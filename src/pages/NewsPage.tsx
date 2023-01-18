@@ -2,20 +2,7 @@ import React, { FC, useCallback, useEffect, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { Box } from "../components/ui/Box";
 import { Typography } from "../components/ui/Typography";
-
-export interface News {
-  id: number;
-  title: string;
-  url: string;
-  imageUrl: string;
-  newsSite: string;
-  summary: string;
-  publishedAt: string;
-  updatedAt: string;
-  featured: boolean;
-  launches: string[];
-  events: string[];
-}
+import { News } from "../types/api";
 
 const NewsPage: FC = () => {
   const [isLoading, setIsLoading] = useState(true);
