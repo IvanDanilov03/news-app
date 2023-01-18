@@ -19,13 +19,13 @@ export const GoButton: FC<GoButtonProps> = ({ text, type, id }) => {
   const handleClick = (id: number, type: "forward" | "back") => {
     if (type === "forward") {
       return (event: React.MouseEvent) => {
-        navigate(`/news/${id}`);
+        navigate(`/home/${id}`);
         event.preventDefault();
       };
     }
     return (event: React.MouseEvent) => {
       if (window.history.state === null) {
-        navigate(`/news`);
+        navigate(`/home`);
       } else {
         navigate(-1);
       }
