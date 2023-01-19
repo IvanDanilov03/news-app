@@ -18,13 +18,11 @@ declare module '@mui/material/styles' {
   interface TypographyVariants {
     body: React.CSSProperties;
     bodyLarge: React.CSSProperties;
-    small: React.CSSProperties;
     tiny: React.CSSProperties;
   }
   interface TypographyVariantsOptions {
     body?: React.CSSProperties;
     bodyLarge?: React.CSSProperties;
-    small?: React.CSSProperties;
     tiny?: React.CSSProperties;
   }
 }
@@ -34,7 +32,6 @@ declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     body: true;
     bodyLarge: true;
-
     tiny: true;
   }
 }

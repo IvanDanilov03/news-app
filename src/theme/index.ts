@@ -5,8 +5,8 @@ export const basicTheme = createTheme({
     values: {
       mobile: 0,
       tablet: 744,
-      laptop: 1280,
-      desktop: 1680,
+      laptop: 1290,
+      desktop: 1440,
     },
   },
   typography: {
@@ -45,6 +45,19 @@ export const theme = createTheme(
       MuiTypography: {
         defaultProps: {
           variant: "body",
+          variantMapping: {
+            h1: "h2",
+            h2: "h2",
+            h3: "h2",
+            h4: "h2",
+            h5: "h2",
+            h6: "h2",
+            subtitle1: "h2",
+            subtitle2: "h2",
+            body: "p",
+            bodyLarge: "p",
+            tiny: "p",
+          },
         },
       },
       MuiContainer: {
@@ -62,7 +75,7 @@ export const theme = createTheme(
         styleOverrides: {
           root: {
             textTransform: "none",
-            color: 'inherit'
+            color: "inherit",
           },
         },
       },
