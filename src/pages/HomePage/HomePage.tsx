@@ -1,6 +1,8 @@
-import React, { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import { Box } from "../../components/ui/Box";
+import { Loader } from "../../components/ui/Loader";
 import { News } from "../../types/api";
+import ErrorPage from "../ErrorPage/ErrorPage";
 import { HomePageView } from "../HomePageView/HomePageView";
 
 const HomePage: FC = () => {
@@ -15,7 +17,6 @@ const HomePage: FC = () => {
       const response = await fetch(
         "https://api.spaceflightnewsapi.net/v3/articles"
       );
-
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
@@ -34,9 +35,13 @@ const HomePage: FC = () => {
     fetchNews();
   }, [fetchNews]);
 
+  if (httpError) {
+    return <ErrorPage httpError={httpError} />;
+  }
+
   return (
     <Box>
-      <HomePageView data={loadedNews.slice(0, -1)}/>
+      {isLoading ? <Loader /> : <HomePageView data={loadedNews.slice(0, -1)} />}
     </Box>
   );
 };
