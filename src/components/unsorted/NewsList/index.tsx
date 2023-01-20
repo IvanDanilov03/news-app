@@ -19,14 +19,17 @@ export interface NewsListProps {
     launches: string[];
     events: string[];
   }[];
+  inputText: string;
+  enterInput: boolean;
 }
 
-export const NewsList: FC<NewsListProps> = ({ data }) => {
+export const NewsList: FC<NewsListProps> = ({
+  data,
+  inputText,
+  enterInput,
+}) => {
   const cleanDate = (createdAt: string) => {
-    const propcreatedDate = createdAt;
-    const [clearDate] = propcreatedDate.match(
-      /(\d{4})-(\d{1,2})-(\d{1,2})/
-    ) || [""];
+    const [clearDate] = createdAt.match(/(\d{4})-(\d{1,2})-(\d{1,2})/) || [""];
     const date = new Date(clearDate);
     const monthName = date.toLocaleString("en", { month: "long" });
     const year = date.toLocaleString("en", { year: "numeric" });
@@ -58,6 +61,8 @@ export const NewsList: FC<NewsListProps> = ({ data }) => {
           imageSrc={item.imageUrl}
           imageAlt={item.title}
           id={item.id}
+          inputText={inputText}
+          enterInput={enterInput}
         />
       ))}
     </Box>
