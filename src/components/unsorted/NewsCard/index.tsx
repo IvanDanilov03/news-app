@@ -40,10 +40,12 @@ export const NewsCard: FC<NewsCardProps> = ({
           <CalendarIcon sx={styles.dateIcon} />
           <Typography variant="tiny">{dateTitle}</Typography>
         </Box>
-        <Typography gutterBottom variant="h1" sx={styles.title}>
-          {newsTitle}
-        </Typography>
-        <Typography>{newsSummary}</Typography>
+        <Box sx={styles.descriptionText}>
+          <Typography gutterBottom variant="h1" sx={styles.title}>
+            {newsTitle}
+          </Typography>
+          <Typography sx={styles.summary}>{newsSummary}</Typography>
+        </Box>
       </CardContent>
       <CardActions sx={styles.button}>
         <GoButton id={id} text="Read more" type="forward" />
