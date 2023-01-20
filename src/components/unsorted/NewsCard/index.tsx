@@ -82,24 +82,31 @@ export const NewsCard: FC<NewsCardProps> = ({
         </Box>
 
         <Box sx={styles.descriptionText}>
-          <Typography gutterBottom variant="h1" sx={styles.title}>
-            {enterInput
-              ? resultTitle.map((item) => (
-                  <Box sx={styles.textBox} key={Math.random()}>
+          {enterInput ? (
+            <>
+              <Box sx={styles.title}>
+                {resultTitle.map((item) => (
+                  <Box key={Math.random()} sx={styles.textBox}>
                     {item}
                   </Box>
-                ))
-              : newsTitle}
-          </Typography>
-          <Typography sx={styles.summary}>
-            {enterInput
-              ? resultSummary.map((item) => (
-                  <Box sx={styles.textBox} key={Math.random()}>
+                ))}
+              </Box>
+              <Box sx={styles.summary}>
+                {resultSummary.map((item) => (
+                  <Box key={Math.random()} sx={styles.textBox}>
                     {item}
                   </Box>
-                ))
-              : newsSummary}
-          </Typography>
+                ))}
+              </Box>
+            </>
+          ) : (
+            <>
+              <Typography gutterBottom variant="h1" sx={styles.title}>
+                {newsTitle}
+              </Typography>
+              <Typography sx={styles.summary}>{newsSummary}</Typography>
+            </>
+          )}
         </Box>
       </CardContent>
       <CardActions sx={styles.button}>

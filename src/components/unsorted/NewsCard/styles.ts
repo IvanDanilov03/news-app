@@ -61,7 +61,6 @@ export const styles: SxStyles = {
     height: "30%",
     display: "flex",
     flexWrap: "wrap",
-    columnGap: "3px",
   },
   button: {
     pl: 0,
