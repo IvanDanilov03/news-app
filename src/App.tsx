@@ -1,4 +1,4 @@
-import React from "react";
+import {FC} from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Box } from "./components/ui/Box";
@@ -6,7 +6,7 @@ import { theme } from "./theme";
 import HomePage from "./pages/HomePage/HomePage";
 import ArticlePage from "./pages/ArticlePage/ArticlePage";
 
-const App: React.FC = () => {
+const App: FC = () => {
   return (
     <Box>
       <ThemeProvider theme={theme}>
