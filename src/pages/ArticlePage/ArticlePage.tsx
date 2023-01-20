@@ -1,8 +1,10 @@
-import React, { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Box } from "../../components/ui/Box";
 import { ArticlePageView } from "../ArticlePageView/ArticlePageView";
 import { News } from "../../types/api";
+import { Loader } from "../../components/ui/Loader";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 const ArticlePage: FC = () => {
   const { newsId } = useParams();
@@ -43,14 +45,22 @@ const ArticlePage: FC = () => {
     return null;
   }
 
+  if (httpError) {
+    return <ErrorPage httpError={httpError} />;
+  }
+
   return (
     <Box>
-      <ArticlePageView
-        title={loadedNewsDetails.title}
-        imageUrl={loadedNewsDetails.imageUrl}
-        newsSite={loadedNewsDetails.newsSite}
-        summary={loadedNewsDetails.summary}
-      />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <ArticlePageView
+          title={loadedNewsDetails.title}
+          imageUrl={loadedNewsDetails.imageUrl}
+          newsSite={loadedNewsDetails.newsSite}
+          summary={loadedNewsDetails.summary}
+        />
+      )}
     </Box>
   );
 };
