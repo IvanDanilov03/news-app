@@ -1,11 +1,16 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Box } from "../../components/ui/Box";
 import { Typography } from "../../components/ui/Typography";
 
-const ErrorPage: FC = () => {
+export interface ErrorPageProps {
+  httpError: string;
+}
+
+const ErrorPage: FC<ErrorPageProps> = ({ httpError }) => {
   return (
     <Box>
-      <Typography>Error Page</Typography>
+      <Typography variant="h1">Something went wrong!</Typography>
+      <Typography>Error: {httpError} </Typography>
     </Box>
   );
 };
