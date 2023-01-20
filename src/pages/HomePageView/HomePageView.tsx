@@ -111,7 +111,7 @@ export const HomePageView: FC<HomePageViewProps> = ({ data }) => {
 
       <Box sx={styles.resultBox}>
         <Typography variant="bodyLarge">
-          Result: {dataToRender.length}
+          Results: {dataToRender.length}
         </Typography>
         <Divider sx={styles.divider} />
       </Box>
