@@ -45,6 +45,7 @@ export const theme = createTheme(
       MuiTypography: {
         defaultProps: {
           variant: "body",
+          color: "#363636",
           variantMapping: {
             h1: "h2",
             h2: "h2",
