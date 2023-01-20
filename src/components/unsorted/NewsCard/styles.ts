@@ -9,12 +9,11 @@ export const styles: SxStyles = {
     boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.05)",
     border: "solid 1px",
     borderColor: "#EAEAEA",
-    width: "250px",
+    width: "80%",
     height: "auto",
     justifyContent: "space-between",
-
     [basicTheme.breakpoints.up("tablet")]: {
-      width: "300px",
+      width: "40%",
     },
     [basicTheme.breakpoints.up("laptop")]: {
       width: "400px",
@@ -54,14 +53,31 @@ export const styles: SxStyles = {
   },
   title: {
     mb: "20px",
+    display: "flex",
+    flexWrap: "wrap",
+    columnGap: "3px",
   },
   summary: {
     height: "30%",
+    display: "flex",
+    flexWrap: "wrap",
+    columnGap: "3px",
   },
   button: {
     pl: 0,
     ml: "17px",
     mb: "25px",
     mt: "20px",
+  },
+  highlight: {
+    backgroundColor: "#FFF619",
+    width: "min-content",
+  },
+  text: {
+    width: "min-content",
+  },
+  textBox: {
+    mr: 1,
+    width: "min-content",
   },
 };
